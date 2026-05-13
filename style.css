@@ -1,0 +1,709 @@
+ss
+/* Общие настройки */
+:root {
+    --bg-blue: #6078ad; /* Светло-голубой фон */
+    --accent-blue: #52a3cf; /* Насыщенный голубой */
+    --dark-blue: #0d426a; /* Более темный синий для акцентов */
+    --text-black: #000000;
+    --white: #7492b5;
+    --border-gray: #6f80a7f7;
+     --dark-blue: #01579b; /* Глубокий синий */
+    --accent-blue: #0288d1; /* Яркий синий */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-blue);
+    color: var(--text-black);
+    margin: 0;
+    padding: 0;
+    /* Белые линии на фоне */
+    background-image: linear-gradient(0deg, transparent 50%, rgba(255, 255, 255, 0.8) 25%, rgba(255, 255, 255, .5) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .5) 75%, rgba(255, 255, 255, .5) 76%, transparent 77%, transparent), 
+                      linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .5) 25%, rgba(255, 255, 255, .5) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .5) 75%, rgba(255, 255, 255, .5) 76%, transparent 77%, transparent);
+    background-size: 80px 80px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка — явно белый фон */
+header {
+    background: #ffffff;                 /* явный белый цвет фона */
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: none;               /* отключаем размытие, если было */
+}
+
+/* Текст и ссылки в шапке — тёмные */
+header, header a, header .logo {
+    color: #0b2b4a;                      /* тёмно-синий/почти чёрный, подберите под сайт */
+    text-decoration: none;
+}
+
+/* Если есть кнопки в шапке — сделать их контрастными на белом фоне */
+header .btn {
+    background: var(--accent-blue);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 14px;
+    border: none;
+}
+
+
+.logo strong {
+    font-size: 1.3rem;
+    color: var(--dark-blue);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-black);
+    margin-left: 25px;
+    font-weight: 400; /* Более строгий шрифт */
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-blue);
+}
+
+/* Главный экран */
+.hero {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    position: relative; /* Важно для позиционирования псевдоэлемента */
+    overflow: hidden; /* Чтобы картинка не выходила за границы */
+
+    /* Основной переливной сине-голубой градиент */
+    background: linear-gradient(to bottom, var(--dark-blue), var(--text-black));
+}
+
+/* Псевдоэлемент для полупрозрачной фоновой картинки */
+.hero::before {
+    content: ''; /* Обязательно для псевдоэлементов */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/hero-texture.jpg') no-repeat center center/cover; /* Ваша непрозрачная картинка */
+    opacity: 0.60; /* <-- ВОТ ЗДЕСЬ МЫ ДЕЛАЕМ ЕЁ ПОЛУПРОЗРАЧНОЙ (15%) */
+    z-index: 0; /* Размещаем под основным контентом */
+}
+
+/* Убедимся, что контент hero находится поверх псевдоэлемента */
+.hero-content {
+    position: relative; /* Важно, чтобы контент был над псевдоэлементом */
+    z-index: 1; /* Выше, чем псевдоэлемент */
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* --- ГЛАВНЫЙ ЭКРАН (HERO) --- */
+/* ... (остальные стили hero) ... */
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 20px;
+    /* Добавим небольшой отступ, чтобы рамка слогана не прилипала к краям */
+    margin: 0 20px; 
+}
+
+.hero-content h1 {
+    .hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+    /* Стили для белой рамки */
+    background: rgba(236, 239, 245, 0.9); /* Белый полупрозрачный фон */
+    padding: 15px 30px; /* Отступы внутри рамки */
+    border-radius: 10px; /* Скругленные углы */
+    border: 2px solid var(--accent-blue); /* Синяя рамка */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Тень для объема */
+    display: inline-block; /* Важно, чтобы рамка облегала текст */
+    max-width: 80%; /* Ограничиваем ширину рамки */
+}
+
+
+.slogan {
+    font-family: 'Roboto', sans-serif; /* Оставляем Roboto для слогана */
+    font-size: 2.2rem;
+    color: var(--dark-blue); /* Цвет текста слогана внутри рамки */
+    font-weight: 500;
+    margin-bottom: 40px;
+    
+    /* Стили для белой рамки */
+    background: rgba(190, 201, 235, 0.9); /* Белый полупрозрачный фон */
+    padding: 15px 30px; /* Отступы внутри рамки */
+    border-radius: 10px; /* Скругленные углы */
+    border: 2px solid var(--accent-blue); /* Синяя рамка */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Тень для объема */
+    display: inline-block; /* Важно, чтобы рамка облегала текст */
+    max-width: 80%; /* Ограничиваем ширину рамки */
+}
+
+/* --- АДАПТИВНОСТЬ для главного экрана --- */
+@media (max-width: 768px) {
+    /* ... (остальные стили hero на планшетах) ... */
+    .hero-content h1 {
+        font-size: 3.5rem; /* Уменьшаем размер заголовка */
+    }
+    .slogan {
+        font-size: 1.8rem; /* Уменьшаем размер слогана */
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* ... (остальные стили hero на телефонах) ... */
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .slogan {
+        font-size: 1.4rem;
+        padding: 8px 15px;
+    }
+}
+
+.emblem-box {
+    width: 200px;
+    height: 200px;
+    border: 4px solid var(--dark-blue);
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 50%; /* Круглый для лого */
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+/* Секции */
+.content-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    text-align: center;
+    border-bottom: 3px solid var(--accent-blue);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    width: auto; /* Убираем ширину 100% */
+    min-width: 200px; /* Минимальная ширина */
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Чтобы margin auto сработало */
+}
+
+/* Карточки и сетки */
+.sector-card {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.sector-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+}
+
+.sector-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* По умолчанию 2 колонки */
+    gap: 30px;
+    align-items: center;
+}
+
+.sector-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.img-placeholder {
+    background: var(--bg-blue); /* Цвет фона, более приятный */
+    border: 2px dashed var(--accent-blue);
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-top: 15px; /* Убираем, т.к. будет в сетке */
+    font-size: 0.9rem;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+.img-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.img-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Адаптивная сетка */
+    gap: 10px;
+}
+
+/* Вакансии - Интерактивные карточки */
+.vacancies-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки карточек */
+    gap: 30px;
+}
+
+.vacancy-card {
+    background: var(--white);
+    border: 1px solid #365eb5;
+    border-radius: 10px;
+    overflow: hidden; /* Чтобы закругления работали */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vacancy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.vacancy-header {
+    background: var(--accent-blue);
+    color: var(--white);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vacancy-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.toggle-btn {
+    background: none;
+    border: 2px solid var(--white);
+    color: var(--white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1; /* Выравнивание символа */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: var(--white);
+    color: var(--accent-blue);
+}
+
+.vacancy-details {
+    padding: 20px;
+    display: none; /* Скрыто по умолчанию */
+    border-top: 1px solid #2c5fab;
+}
+
+.vacancy-details p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.vac-intro-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: var(--dark-blue);
+}
+
+/* Форма */
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Увеличено расстояние */
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+
+.application-form input, 
+.application-form select, 
+.application-form textarea {
+    padding: 15px; /* Увеличен паддинг */
+    border-radius: 8px; /* Более мягкие углы */
+    border: 1px solid var(--border-gray);
+    font-size: 1rem;
+}
+
+.application-form button {
+    background: var(--accent-blue);
+    color: var(--white);
+    border: none;
+    padding: 18px; /* Увеличен паддинг */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.application-form button:hover {
+    background: var(--dark-blue);
+}
+
+/* Контакты */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент */
+}
+
+.contact-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Маленький логотип в контактах */
+.contact-logo-small {
+    margin-top: 20px;
+    width: 100px; /* Фиксированная ширина */
+}
+
+.contact-logo-small img {
+    width: 100px;      /* Жестко задаем размер картинке */
+    height: auto;      /* Высота подстроится сама */
+    display: block;    /* Убираем лишние отступы снизу */
+    border: 1px solid #ddd; /* Легкая рамка, чтобы логотип выделялся */
+    padding: 5px;
+    background: rgb(45, 89, 161);
+}
+
+.map-placeholder {
+    height: 320px;
+    background: #d1e5f5; /* Чуть более светлый голубой */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background: var(--dark-blue); /* Темный фон футера */
+    color: white;
+    font-size: 1.1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    nav {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap; /* Перенос ссылок на новую строку */
+        justify-content: center;
+    }
+    nav a {
+        margin: 5px 10px;
+    }
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+        .slogan {
+        font-size: 1.4rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .history-grid, .sector-content, .vacancies-grid, .contacts-grid {
+        grid-template-columns: 1fr; /* Все сетки в одну колонку */
+    }
+    .img-grid-4 {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки для фото на мобильных */
+    }
+    .vacancy-header h3 {
+        font-size: 1.2rem;
+    }
+    .application-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 40vh;
+    }
+    .emblem-box {
+        width: 150px;
+        height: 150px;
+    }
+    .vacancies-grid {
+        grid-template-columns: 1fr; /* Одна колонка карточек */
+    }
+    .vac-list { /* Если вы ее оставите */
+        column-count: 1;
+    }
+    .img-grid-4 {
+        grid-template-columns: 1fr; /* Одна колонка для фото */
+    }
+}
+/* Стиль для всех добавленных картинок */
+.site-img {
+    width: 100%;          /* Ширина на всю колонку */
+    height: 250px;        /* Фиксированная высота для ровности */
+    object-fit: cover;    /* Картинка заполнит область, не растягиваясь */
+    border-radius: 10px;  /* Красивые скругленные углы */
+    border: 1px solid var(--accent-blue); /* Тонкая синяя рамка */
+}
+/* Раздел Безопасность */
+.safety-section {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    text-align: center; /* Центрируем всё содержимое */
+}
+
+.safety-description {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.safety-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
+    gap: 20px; /* Расстояние между фото */
+}
+
+.safety-photo {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для симметрии */
+    object-fit: cover; /* Чтобы фото не искажалось */
+    border-radius: 8px;
+    border: 2px solid var(--bg-blue);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.safety-photo:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+}
+
+/* Адаптивность для этого раздела */
+@media (max-width: 992px) {
+    .safety-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 на планшетах */
+    }
+}
+
+@media (max-width: 600px) {
+    .safety-gallery {
+        grid-template-columns: 1fr; /* 1 колонка на телефонах */
+    }
+    .safety-description {
+        font-size: 1.1rem;
+    }
+}
+/* Контейнер для карты */
+.map-container {
+    width: 100%;
+    height: 400px; /* Высота карты */
+    border-radius: 12px;
+    overflow: hidden; /* Скругляем углы самой карты */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #e0f2f1; /* Цвет заглушки пока грузится карта */
+}
+
+/* Обновляем сетку контактов для красоты */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Карта чуть шире текстового блока */
+    gap: 40px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr; /* На мобильных карта под текстом */
+    }
+}
+/* --- ТИПОГРАФИКА --- */
+/* Заголовки разделов */
+.section-title {
+    font-family: 'Montserrat', sans-serif; /* Используем Montserrat для заголовков */
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: var(--dark-blue);
+    text-align: center;
+    border-bottom: 3px solid var(--accent-blue);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    width: auto;
+    min-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    letter-spacing: 0.5px; /* Небольшой разлет букв для заголовков */
+}
+
+/* Заголовки карточек О нас */
+.sector-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+}
+
+/* Слоган на главном экране */
+.slogan {
+    font-size: 1.7rem;
+    color: var(--accent-blue);
+    font-weight: 500; /* Roboto medium */
+    margin-bottom: 30px;
+}
+
+/* Основной текст */
+body {
+    font-family: 'Roboto', sans-serif; /* Roboto для основного текста */
+    font-weight: 400; /* Roboto regular */
+    line-height: 1.7; /* Увеличенный межстрочный интервал */
+    /* ... остальной CSS для body */
+}
+
+/* Улучшаем читаемость текста в карточках и секциях */
+.text-block p, .sector-content p, .vacancy-details p, .safety-description p {
+    font-size: 1.1rem;
+    font-weight: 400; /* Roboto regular */
+}
+
+/* --- АНИМАЦИИ --- */
+/* Добавляем класс для анимации появления */
+.animated-element {
+    opacity: 0;
+    transform: translateY(30px); /* Начинаем чуть ниже */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Класс, который появится, когда элемент станет видим */
+.animated-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- ИКОНКИ --- */
+/* Подключаем Font Awesome для иконок */
+/* Вставьте эту строку в <head> вашего index.html */
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> */
+
+/* Стиль для иконок в заголовках */
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между иконкой и текстом */
+    color: var(--accent-blue); /* Цвет иконки */
+}
+
+.icon-container i {
+    font-size: 1.6rem; /* Размер иконки */
+}
+
+/* Стиль для иконок в вакансиях (как буллиты) */
+.vacancy-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.vacancy-card li::before {
+    content: "\f0d1"; /* Иконка автобуса от Font Awesome */
+    font-family: "Font Awesome 6 Free"; /* Указываем шрифт */
+    font-weight: 900; /* Важно для Solid иконок */
+    margin-right: 10px;
+    font-size: 1.1rem;
+    color: var(--bg-blue); /* Цвет иконки */
+}
+/* Меняет только список вакансий */
+.vac-list li {
+    font-size: 0.95rem; /* размер текста */
+    font-weight: 400;   /* normal */
+    line-height: 1.5;
+    color: var(--text-color, #ffffff);
+}
+
+/* Если в карточках есть блок .vacancy-description */
+.vacancy-card .vacancy-description {
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* Если заголовки вакансий — это h3/h4 внутри карточки */
+.vacancy-card h3,
+.vacancy-card h4,
+.vacancy-card .vacancy-title {
+    font-family: 'Roboto', sans-serif; /* явный шрифт с нормальным весом */
+    font-weight: 400;                  /* normal (не жирный) */
+    font-size: 1.1rem;                 /* при необходимости подкорректируйте */
+    color: var(--text-color, #000000);
+    margin: 0 0 8px 0;
+}
