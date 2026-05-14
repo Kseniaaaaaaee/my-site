@@ -178,23 +178,38 @@
         <p class="vac-intro-bottom">Автотранспортное предприятие приглашает молодых сотрудников на работу и прохождение практики.</p>
     </section>
 
-    <!-- Запись на работу -->
-    <section id="apply" class="content-section">
-        <h2 class="section-title"><span class="icon-container"><i class="fas fa-file-alt"></i> Запись на работу</span></h2>
-        <form class="application-form">
-            <input type="text" placeholder="Ваше ФИО" required>
-            <input type="tel" placeholder="Ваш телефон" required>
-            <select>
-                <option>Выберите вакансию</option>
-                <option>Водитель категории «D»</option>
-                <option>Автомеханик</option>
-                <option>Автоэлектрик</option>
-                <option>Диспетчер</option>
-            </select>
-            <textarea placeholder="Опыт работы" rows="4"></textarea>
-            <button type="submit">Отправить данные</button>
-        </form>
-    </section>
+     <!-- Запись на работу -->
+<section id="apply" class="content-section">
+    <h2 class="section-title"><span class="icon-container"><i class="fas fa-file-alt"></i> Запись на работу</span></h2>
+    
+    <!-- СЮДА ВСТАВЛЯЕТСЯ ССЫЛКА (action) И МЕТОД (method="POST") -->
+    <!-- НЕ ЗАБУДЬТЕ ЗАМЕНИТЬ "ВАШ_УНИКАЛЬНЫЙ_КОД" на ваш реальный ID из Formspree! -->
+    <form action="https://formspree.io/f/https://formspree.io/f/mrejvalz" method="POST" class="application-form">
+        
+        <!-- Добавлен атрибут name="full_name" -->
+        <input type="text" name="full_name" placeholder="Ваше ФИО" required>
+        
+        <!-- Добавлен атрибут name="phone" -->
+        <input type="tel" name="phone" placeholder="Ваш телефон" required>
+        
+        <!-- Добавлен атрибут name="vacancy" -->
+        <select name="vacancy" required>
+            <option value="" disabled selected>Выберите вакансию</option> <!-- value="" для пустого выбора -->
+            <option value="Водитель категории «D»">Водитель категории «D»</option>
+            <option value="Автомеханик">Автомеханик</option>
+            <option value="Автоэлектрик">Автоэлектрик</option>
+            <option value="Диспетчер">Диспетчер</option>
+        </select>
+        
+        <!-- Добавлен атрибут name="experience" -->
+        <textarea name="experience" placeholder="Опыт работы" rows="4"></textarea>
+
+        <!-- Необязательное поле для защиты от спама (Formspree _gotcha) -->
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <button type="submit">Отправить данные</button>
+    </form>
+</section> >
 
     <!-- Контакты -->
      <section id="contacts" class="content-section">
