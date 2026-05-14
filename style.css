@@ -107,7 +107,7 @@ header nav a.active {
     width: 100%;
     height: 100%;
     background: url('img/hero-texture.jpg') no-repeat center center/cover;
-    opacity: 0.15; /* Полупрозрачная текстура (15%) */
+    opacity: 0.60; /* Полупрозрачная текстура (15%) */
     z-index: 0;
 }
 
@@ -118,17 +118,28 @@ header nav a.active {
     max-width: 900px;
     padding: 20px;
     margin: 0 20px;
+
+    
 }
 
 .hero-content h1 {
     font-family: 'Oswald', sans-serif; /* Шрифт для заголовка */
-    font-size: 4.8rem; /* Размер */
+    font-size: 2.8rem; /* Размер */
     font-weight: 700;
     color: var(--white); /* Белый цвет для заголовка */
     margin-bottom: 20px;
     text-shadow: 3px 3px 10px rgba(0,0,0,0.6); /* Более выраженная тень */
     line-height: 1.1;
     letter-spacing: 1px;
+
+    /* Белая рамка со скруглениями */
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 2px solid var(--accent-blue); /* Синяя рамка */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: inline-block; /* Облегает текст */
+    max-width: 80%;
 }
 
 .slogan {
@@ -692,6 +703,33 @@ footer {
         font-size: 0.9rem; /* Читабельный, но компактный текст */
     }
 
+    /* --- ИСПРАВЛЕНИЕ ПРОБЛЕМЫ СЕТОК И ИЗОБРАЖЕНИЙ --- */
+
+    /* Делаем все изображения в секциях правильно масштабируемыми */
+    .content-section img {
+        max-width: 100% !important; /* Изображение не будет шире родителя */
+        height: auto !important; /* Высота подстроится автоматически */
+        display: block !important; /* Убирает лишние отступы под изображением */
+        margin: 10px auto; /* Центрируем изображение, если оно меньше родителя */
+    }
+
+    /* Перестраиваем сетки в одну колонку */
+    .sector-content,
+    .vacancies-grid,
+    .safety-gallery,
+    .img-grid-2, /* Включаем и ее, на всякий случай */
+    .img-grid-4 {
+        grid-template-columns: 1fr !important; /* Все элементы сетки в одну колонку */
+        gap: 20px; /* Добавим небольшой зазор между блоками */
+    }
+
+    /* Корректировка галереи безопасности (чтобы фото не были сплющенными) */
+    .safety-photo {
+        height: auto; /* Высота подстраивается */
+        max-height: 180px; /* Ограничим максимальную высоту, чтобы не вытягивались */
+        object-fit: contain; /* Чтобы фото полностью помещалось */
+    }
+    
     /* 5. Вакансии */
     .vacancy-header h3 {
         font-size: 1rem;
@@ -702,20 +740,6 @@ footer {
     
     /* Убираем лишние отступы сверху, чтобы контент поднялся выше */
     main, .page-wrapper {
-        padding-top: 100px; /* Подстройка под высоту шапки */
-    }
-
-    /* Дополнительные корректировки для маленьких экранов */
-    .vacancies-grid {
-        grid-template-columns: 1fr;
-    }
-    .img-grid-4 {
-        grid-template-columns: 1fr;
-    }
-    .safety-gallery {
-        grid-template-columns: 1fr;
-    }
-    .safety-description {
-        font-size: 1.1rem;
+        padding-top: 90px; /* Подстройка под высоту шапки, может потребоваться небольшая корректировка */
     }
 }
