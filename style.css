@@ -2,8 +2,8 @@ ss
 /* Общие настройки */
 :root {
     --bg-blue: #6078ad; /* Светло-голубой фон */
-    --accent-blue: #0288d1; /* Яркий синий (изменен для общего стиля) */
-    --dark-blue: #01579b; /* Глубокий синий (изменен для общего стиля) */
+    --accent-blue: #0288d1; /* Яркий синий */
+    --dark-blue: #01579b; /* Глубокий синий */
     --text-black: #000000; /* Для основного текста */
     --white: #ffffff; /* Чистый белый */
     --border-gray: #6f80a7f7; /* Серовато-синий для границ */
@@ -16,9 +16,12 @@ body {
     color: var(--text-black); /* Черный основной текст */
     margin: 0;
     padding: 0;
-    /* Убрал сложный фон, чтобы не перегружать */
-    /* background-image: ...; */
-    /* background-size: 80px 80px; */
+    /* Убрал сложный фон, чтобы не перегружать, если нужно, раскомментируйте: */
+    /*
+    background-image: linear-gradient(0deg, transparent 50%, rgba(255, 255, 255, 0.8) 25%, rgba(255, 255, 255, .5) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .5) 75%, rgba(255, 255, 255, .5) 76%, transparent 77%, transparent), 
+                      linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .5) 25%, rgba(255, 255, 255, .5) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .5) 75%, rgba(255, 255, 255, .5) 76%, transparent 77%, transparent);
+    background-size: 80px 80px;
+    */
 }
 
 .container {
@@ -104,7 +107,7 @@ header nav a.active {
     width: 100%;
     height: 100%;
     background: url('img/hero-texture.jpg') no-repeat center center/cover;
-    opacity: 0.60; /* Полупрозрачная текстура (15%) */
+    opacity: 0.15; /* Полупрозрачная текстура (15%) */
     z-index: 0;
 }
 
@@ -118,25 +121,15 @@ header nav a.active {
 }
 
 .hero-content h1 {
-    font-family: 'Oswald', sans-serif; /* Новый шрифт для заголовка */
-    font-size: 2.8rem; /* Увеличим размер */
+    font-family: 'Oswald', sans-serif; /* Шрифт для заголовка */
+    font-size: 4.8rem; /* Размер */
     font-weight: 700;
     color: var(--white); /* Белый цвет для заголовка */
     margin-bottom: 20px;
     text-shadow: 3px 3px 10px rgba(0,0,0,0.6); /* Более выраженная тень */
     line-height: 1.1;
     letter-spacing: 1px;
-
-    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
-    padding: 15px 30px;
-    border-radius: 10px;
-    border: 2px solid var(--accent-blue); /* Синяя рамка */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: inline-block; /* Облегает текст */
-    max-width: 80%;
 }
-
-
 
 .slogan {
     font-family: 'Roboto', sans-serif; /* Roboto для слогана */
@@ -177,44 +170,6 @@ header nav a.active {
     object-fit: contain;
 }
 
-/* --- АДАПТИВНОСТЬ главного экрана --- */
-@media (max-width: 768px) {
-    .hero {
-        height: 60vh; /* Чуть меньше высота */
-    }
-    .hero-content h1 {
-        font-size: 3.2rem;
-    }
-    .slogan {
-        font-size: 1.6rem;
-        padding: 10px 20px;
-    }
-    .emblem-box {
-        width: 160px;
-        height: 160px;
-    }
-    /* Скрываем декорации на мобильных, чтобы не перегружать */
-    .hero-decoration { display: none; } 
-    .hero-bus-left, .hero-bus-right { display: none; }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 50vh;
-    }
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .slogan {
-        font-size: 1.3rem;
-        padding: 8px 15px;
-    }
-    .emblem-box {
-        width: 120px;
-        height: 120px;
-    }
-}
-
 /* Секции */
 .content-section {
     padding: 60px 0;
@@ -230,18 +185,13 @@ header nav a.active {
     display: inline-block;
     padding-bottom: 10px;
     margin-bottom: 40px;
-    width: auto; /* Убираем ширину 100% */
+    width: auto;
     min-width: 200px;
     margin-left: auto;
     margin-right: auto;
     display: block; /* Чтобы margin auto сработало */
     letter-spacing: 0.5px;
 }
-
-/* Если у заголовка есть ID, он может быть прикреплен к нему */
-/* Пример стилизации для ID */
-    /* Можете добавить здесь специфические стили для раздела "История", если нужно */
-
 
 /* Карточки и сетки */
 .sector-card {
@@ -278,7 +228,7 @@ header nav a.active {
 }
 
 .img-placeholder {
-    background: var(--bg-blue); /* Цвет фона, более приятный */
+    background: var(--bg-blue);
     border: 2px dashed var(--accent-blue);
     height: 220px;
     display: flex;
@@ -296,7 +246,6 @@ header nav a.active {
     gap: 15px;
 }
 
-/* Адаптивность для img-grid-4 */
 .img-grid-4 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Адаптивная сетка */
@@ -312,7 +261,7 @@ header nav a.active {
 
 .vacancy-card {
     background: var(--white);
-    border: 1px solid var(--dark-blue); /* Более темная граница */
+    border: 1px solid var(--dark-blue);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
@@ -361,7 +310,7 @@ header nav a.active {
 .vacancy-details {
     padding: 20px;
     display: none; /* Скрыто по умолчанию */
-    border-top: 1px solid #2c5fab; /* Граница */
+    border-top: 1px solid #2c5fab;
 }
 
 .vacancy-details p {
@@ -397,6 +346,8 @@ header nav a.active {
     border-radius: 8px;
     border: 1px solid var(--border-gray);
     font-size: 1rem;
+    width: 100%; /* Добавлено для адаптивности */
+    box-sizing: border-box; /* Добавлено для адаптивности */
 }
 
 .application-form button {
@@ -409,6 +360,8 @@ header nav a.active {
     font-size: 1.1rem;
     border-radius: 8px;
     transition: background-color 0.3s ease;
+    width: 100%; /* Добавлено для адаптивности */
+    box-sizing: border-box; /* Добавлено для адаптивности */
 }
 
 .application-form button:hover {
@@ -441,8 +394,8 @@ header nav a.active {
     display: block;
     border: 1px solid #ddd;
     padding: 5px;
-    background: var(--dark-blue); /* Лого на темном фоне */
-    border-radius: 8px; /* Скругление */
+    background: var(--dark-blue);
+    border-radius: 8px;
 }
 
 /* Контейнер для карты */
@@ -452,7 +405,7 @@ header nav a.active {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    background: #e0f2f1; /* Цвет заглушки */
+    background: #e0f2f1;
 }
 
 /* --- Безопасность --- */
@@ -496,544 +449,22 @@ header nav a.active {
     border-color: var(--accent-blue);
 }
 
-/* --- ТИПОГРАФИКА --- */
-/* Заголовки разделов */
-.section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2.8rem;
-    color: var(--dark-blue);
-    text-align: center;
-    border-bottom: 3px solid var(--accent-blue);
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 40px;
-    width: auto;
-    min-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    letter-spacing: 0.5px;
-}
-
-/* Заголовки карточек О нас */
-.sector-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-blue);
-    margin-bottom: 20px;
-}
-
-/* Слоган на главном экране */
-.slogan {
-    font-family: 'Oswald', sans-serif; /* Oswald для слогана */
-    font-size: 2.0rem; /* Чуть меньше, чем H1 */
-    color: var(--dark-blue);
-    font-weight: 500;
-    margin-bottom: 30px;
-    background: rgba(255, 255, 255, 0.9); /* Белая рамка */
-    padding: 15px 30px;
-    border-radius: 10px;
-    border: 2px solid var(--accent-blue);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: inline-block;
-    max-width: 80%;
-}
-
-/* Основной текст */
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-}
-
-.text-block p, .sector-content p, .vacancy-details p, .safety-description p {
-    font-size: 1.1rem;
-    font-weight: 400;
-}
-
-/* --- АНИМАЦИИ --- */
-.animated-element {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animated-element.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- ИКОНКИ --- */
-/* Font Awesome (подключите в index.html!) */
-/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> */
-
-.icon-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--accent-blue);
-}
-
-.icon-container i {
-    font-size: 1.6rem;
-}
-
-.vacancy-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.vacancy-card li::before {
-    content: "\f0d1"; /* Иконка автобуса */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    margin-right: 10px;
-    font-size: 1.1rem;
-    color: var(--bg-blue);
-}
-
-/* --- АДАПТИВНОСТЬ --- */
-
-/* Общие медиа-запросы */
-@media (max-width: 992px) {
-    .safety-gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2x2 на планшетах */
-    }
-    .img-grid-4 {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки для фото */
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-    nav {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    nav a {
-        margin: 5px 10px;
-        font-size: 1.0rem;
-    }
-    .hero-content h1 {
-        font-size: 3.5rem; /* Немного больше, чем на 480px */
-    }
-    .slogan {
-        font-size: 1.8rem;
-        padding: 10px 20px;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
-    /* Все сетки в одну колонку */
-    .history-grid, .sector-content, .vacancies-grid, .contacts-grid {
-        grid-template-columns: 1fr;
-    }
-    /* Контакты: карта под текстом */
-    .contacts-grid {
-        grid-template-columns: 1fr;
-    }
-    .vacancy-header h3 {
-        font-size: 1.2rem;
-    }
-    .application-form {
-        padding: 30px;
-    }
-    /* Отступ для основного контента (подгоните по реальной высоте header!) */
-    main, .page-wrapper {
-        padding-top: 72px; /* Отрегулируйте под высоту шапки */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 40vh;
-    }
-    .emblem-box {
-        width: 150px;
-        height: 150px;
-    }
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    .slogan {
-        font-size: 1.4rem;
-        padding: 8px 15px;
-    }
-    .vacancies-grid {
-        grid-template-columns: 1fr;
-    }
-    .vac-list {
-        column-count: 1;
-    }
-    .img-grid-4 {
-        grid-template-columns: 1fr;
-    }
-    .safety-gallery {
-        grid-template-columns: 1fr;
-    }
-    .safety-description {
-        font-size: 1.1rem;
-    }
-    /* Отступ для основного контента (подгоните под шапку) */
-    main, .page-wrapper {
-        padding-top: 64px;
-    }
-}
-
-/* Стиль для всех добавленных картинок */
-.site-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--accent-blue);
-}
-
-/* Раздел Безопасность */
-.safety-section {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 12px;
-    margin-bottom: 35px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
-    text-align: center;
-}
-
-.safety-description {
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: var(--dark-blue);
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-.safety-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
-    gap: 20px;
-}
-
-.safety-photo {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid var(--bg-blue);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.safety-photo:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-blue);
-}
-
 /* --- Типографика --- */
 /* Заголовки разделов */
-.section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2.8rem;
-    color: var(--dark-blue);
-    text-align: center;
-    border-bottom: 3px solid var(--accent-blue);
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 40px;
-    width: auto;
-    min-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    letter-spacing: 0.5px;
-}
+/* .section-title стилизован выше, чтобы избежать дублирования */
 
 /* Заголовки карточек О нас */
-.sector-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-blue);
-    margin-bottom: 20px;
-}
+/* .sector-card h3 стилизован выше, чтобы избежать дублирования */
 
 /* Слоган на главном экране */
-.slogan {
-    font-family: 'Oswald', sans-serif; /* Oswald для слогана */
-    font-size: 2.0rem; /* Чуть меньше, чем H1 */
-    color: var(--dark-blue);
-    font-weight: 500;
-    margin-bottom: 30px;
-    background: rgba(255, 255, 255, 0.9); /* Белая рамка */
-    padding: 15px 30px;
-    border-radius: 10px;
-    border: 2px solid var(--accent-blue);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: inline-block;
-    max-width: 80%;
-}
+/* .slogan стилизован выше, чтобы избежать дублирования */
 
 /* Основной текст */
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-}
+/* body стилизован выше, чтобы избежать дублирования */
 
 .text-block p, .sector-content p, .vacancy-details p, .safety-description p {
     font-size: 1.1rem;
     font-weight: 400;
-}
-
-/* --- АНИМАЦИИ --- */
-.animated-element {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animated-element.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- ИКОНКИ --- */
-/* Font Awesome (подключите в index.html!) */
-/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> */
-
-.icon-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--accent-blue);
-}
-
-.icon-container i {
-    font-size: 1.6rem;
-}
-
-.vacancy-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.vacancy-card li::before {
-    content: "\f0d1"; /* Иконка автобуса */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    margin-right: 10px;
-    font-size: 1.1rem;
-    color: var(--bg-blue);
-}
-
-/* --- АДАПТИВНОСТЬ --- */
-
-/* Общие медиа-запросы */
-@media (max-width: 992px) {
-    .safety-gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2x2 на планшетах */
-    }
-    .img-grid-4 {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки для фото */
-    }
-}
-
-@media (max-width: 768px) {
-    /* Шапка */
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-    nav {
-        margin-top: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    nav a {
-        margin: 5px 10px;
-        font-size: 1.0rem;
-    }
-    /* Главный экран */
-    .hero {
-        height: 60vh;
-    }
-    .hero-content h1 {
-        font-size: 3.5rem; /* Увеличил немного для больших телефонов */
-    }
-    .slogan {
-        font-size: 1.8rem;
-        padding: 10px 20px;
-    }
-    .emblem-box {
-        width: 160px;
-        height: 160px;
-    }
-    /* Скрываем декорации на мобильных */
-    .hero-decoration { display: none; }
-    .hero-bus-left, .hero-bus-right { display: none; }
-
-    /* Заголовки секций */
-    .section-title {
-        font-size: 2rem;
-    }
-    /* Все сетки в одну колонку */
-    .history-grid, .sector-content, .vacancies-grid, .contacts-grid {
-        grid-template-columns: 1fr;
-    }
-    /* Контакты: карта под текстом */
-    .contacts-grid {
-        grid-template-columns: 1fr;
-    }
-    /* Вакансии */
-    .vacancy-header h3 {
-        font-size: 1.2rem;
-    }
-    .application-form {
-        padding: 30px;
-    }
-    /* Отступ для основного контента (подгоните по реальной высоте header!) */
-    main, .page-wrapper {
-        padding-top: 72px; /* Отрегулируйте под высоту шапки */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 50vh;
-    }
-    .emblem-box {
-        width: 120px;
-        height: 120px;
-    }
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    .slogan {
-        font-size: 1.3rem;
-        padding: 8px 15px;
-    }
-    /* Одна колонка для карточек и фото */
-    .vacancies-grid {
-        grid-template-columns: 1fr;
-    }
-    .img-grid-4 {
-        grid-template-columns: 1fr;
-    }
-    .safety-gallery {
-        grid-template-columns: 1fr;
-    }
-    .safety-description {
-        font-size: 1.1rem;
-    }
-    /* Отступ для основного контента (подгоните под шапку) */
-    main, .page-wrapper {
-        padding-top: 64px;
-    }
-}
-
-/* Стиль для всех добавленных картинок */
-.site-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--accent-blue);
-}
-
-/* Раздел Безопасность */
-.safety-section {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 12px;
-    margin-bottom: 35px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
-    text-align: center;
-}
-
-.safety-description {
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: var(--dark-blue);
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-.safety-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
-    gap: 20px;
-}
-
-.safety-photo {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid var(--bg-blue);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.safety-photo:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-blue);
-}
-
-/* --- ТИПОГРАФИКА --- */
-/* Заголовки разделов */
-.section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2.8rem;
-    color: var(--dark-blue);
-    text-align: center;
-    border-bottom: 3px solid var(--accent-blue);
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 40px;
-    width: auto;
-    min-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    letter-spacing: 0.5px;
-}
-
-/* Заголовки карточек О нас */
-.sector-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark-blue);
-    margin-bottom: 20px;
-}
-
-/* Слоган на главном экране */
-.slogan {
-    font-family: 'Oswald', sans-serif; /* Oswald для слогана */
-    font-size: 2.0rem; /* Чуть меньше, чем H1 */
-    color: var(--dark-blue);
-    font-weight: 500;
-    margin-bottom: 30px;
-    background: rgba(255, 255, 255, 0.9); /* Белая рамка */
-    padding: 15px 30px;
-    border-radius: 10px;
-    border: 2px solid var(--accent-blue);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: inline-block;
-    max-width: 80%;
 }
 
 /* --- АНИМАЦИИ --- */
@@ -1079,28 +510,212 @@ body {
 }
 
 /* --- ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ВАКАНСИЙ --- */
-/* Если вы оставили старые стили для .vac-list li */
 .vac-list li {
     font-size: 0.95rem;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--text-black); /* Используем черный для текста */
+    color: var(--text-black);
 }
 
-/* Если есть блок .vacancy-description */
 .vacancy-card .vacancy-description {
     font-size: 0.95rem;
     font-weight: 400;
 }
 
-/* Заголовки вакансий */
 .vacancy-card h3,
 .vacancy-card h4,
 .vacancy-card .vacancy-title {
-    font-family: 'Montserrat', sans-serif; /* Используем Montserrat */
-    font-weight: 700; /* Жирный */
-    font-size: 1.4rem; /* Немного больше, чем обычный текст */
-    color: var(--dark-blue); /* Темно-синий */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--dark-blue);
     margin: 0 0 8px 0;
 }
 
+footer {
+    text-align: center;
+    padding: 40px;
+    background: var(--footer-bg); /* Темный фон футера */
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+
+/* --- АДАПТИВНОСТЬ --- */
+
+/* Общие медиа-запросы для планшетов (до 992px) */
+@media (max-width: 992px) {
+    .safety-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 на планшетах */
+    }
+    .img-grid-4 {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки для фото */
+    }
+}
+
+/* Медиа-запросы для средних устройств (до 768px, планшеты и большие телефоны) */
+@media (max-width: 768px) {
+    /* Шапка */
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    nav {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        margin: 5px 10px;
+        font-size: 1.0rem;
+    }
+    /* Главный экран */
+    .hero {
+        height: 60vh;
+    }
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .slogan {
+        font-size: 1.8rem;
+        padding: 10px 20px;
+    }
+    .emblem-box {
+        width: 160px;
+        height: 160px;
+    }
+    /* Скрываем декорации на мобильных */
+    .hero-decoration { display: none; }
+    .hero-bus-left, .hero-bus-right { display: none; }
+
+    /* Заголовки секций */
+    .section-title {
+        font-size: 2rem;
+    }
+    /* Все сетки в одну колонку */
+    .history-grid, .sector-content, .vacancies-grid, .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Контакты: карта под текстом */
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Вакансии */
+    .vacancy-header h3 {
+        font-size: 1.2rem;
+    }
+    .application-form {
+        padding: 30px;
+    }
+    /* Отступ для основного контента (подгоните по реальной высоте header!) */
+    main, .page-wrapper {
+        padding-top: 72px; /* Отрегулируйте под высоту шапки */
+    }
+}
+
+/* --- ПОЛНОСТЬЮ ОБНОВЛЕННЫЙ БЛОК ДЛЯ МАЛЕНЬКИХ МОБИЛЬНЫХ (480px и меньше) --- */
+@media (max-width: 480px) {
+    /* 1. Делаем шапку компактнее */
+    header {
+        padding: 10px 2%;
+    }
+    header .logo strong {
+        font-size: 0.95rem; /* Уменьшаем название в шапке */
+    }
+    nav {
+        margin-top: 8px;
+    }
+    nav a {
+        font-size: 0.8rem; /* Совсем маленькие ссылки в меню */
+        margin: 2px 5px;
+    }
+
+    /* 2. Главный экран (Hero) — делаем всё тоньше и меньше */
+    .hero {
+        height: 60vh; /* Увеличим высоту, чтобы всё влезло */
+    }
+    .hero-content {
+        padding: 10px;
+    }
+
+    /* Название компании на главном экране */
+    .hero-content h1 {
+        font-size: 1.3rem !important; /* Тонкое и аккуратное название */
+        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.9); /* Добавим легкую подложку, если нужно */
+        padding: 8px 15px;
+        border-radius: 8px;
+        display: inline-block;
+        color: var(--dark-blue);
+        text-shadow: none; /* Убираем тяжелые тени */
+    }
+
+    /* Лозунг (Пассажирские перевозки...) */
+    .slogan {
+        font-size: 0.95rem !important; /* Делаем текст лозунга мелким */
+        padding: 6px 12px !important; /* Уменьшаем рамку */
+        max-width: 90%;
+        line-height: 1.3;
+        font-weight: 400; /* Не жирный */
+        margin-bottom: 15px;
+        border-width: 1px; /* Тонкая рамка */
+    }
+
+    /* Логотип-круг (Эмблема) */
+    .emblem-box {
+        width: 80px !important;  /* Маленький аккуратный кружок */
+        height: 80px !important;
+        border-width: 2px;
+        margin: 5px auto;
+    }
+
+    /* 3. Заголовки разделов (Чем занимаемся и т.д.) */
+    .section-title {
+        font-size: 1.4rem !important; /* Уменьшаем огромные заголовки */
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+    }
+    
+    .icon-container i {
+        font-size: 1.2rem; /* Уменьшаем иконку в заголовке */
+    }
+
+    /* 4. Карточки и тексты */
+    .sector-card {
+        padding: 15px;
+    }
+    .sector-card h3 {
+        font-size: 1.2rem;
+    }
+    .text-block p, .sector-content p {
+        font-size: 0.9rem; /* Читабельный, но компактный текст */
+    }
+
+    /* 5. Вакансии */
+    .vacancy-header h3 {
+        font-size: 1rem;
+    }
+    .vacancy-details p {
+        font-size: 0.85rem;
+    }
+    
+    /* Убираем лишние отступы сверху, чтобы контент поднялся выше */
+    main, .page-wrapper {
+        padding-top: 100px; /* Подстройка под высоту шапки */
+    }
+
+    /* Дополнительные корректировки для маленьких экранов */
+    .vacancies-grid {
+        grid-template-columns: 1fr;
+    }
+    .img-grid-4 {
+        grid-template-columns: 1fr;
+    }
+    .safety-gallery {
+        grid-template-columns: 1fr;
+    }
+    .safety-description {
+        font-size: 1.1rem;
+    }
+}
