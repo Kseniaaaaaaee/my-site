@@ -755,24 +755,4 @@ footer {
     }
 }
 
-/* Настройки для мобильных устройств (ширина экрана до 600px) */
-@media (max-width: 600px) {
-    /* Находим блок с логотипом в контактах */
-    /* Предположим, у вас там тег img или класс .contact-logo */
-    
-    .contacts img, 
-    .contact-section img { 
-        max-width: 65% !important; /* Уменьшаем ширину до 65% от экрана */
-        height: auto !important;
-        margin: 0 auto !important;
-        display: block;
-    }
 
-    /* Если у логотипа есть серая рамка (контейнер), уменьшим и её */
-    .contact-section .image-container, 
-    div[style*="border"] { 
-        width: 80% !important; 
-        margin: 0 auto !important;
-        padding: 10px !important;
-    }
-}
