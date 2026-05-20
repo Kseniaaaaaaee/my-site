@@ -106,8 +106,8 @@ header nav a.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('img/hero-texture.jpg') no-repeat center center/cover;
-    opacity: 0.60; /* Полупрозрачная текстура (15%) */
+    background: url('img/big.webp') no-repeat center center/cover;
+    opacity: 0.70; /* Полупрозрачная текстура (15%) */
     z-index: 0;
 }
 
@@ -123,12 +123,12 @@ header nav a.active {
 }
 
 .hero-content h1 {
-    font-family: 'Oswald', sans-serif; /* Шрифт для заголовка */
+    font-family: 'Roboto', sans-serif; /* Шрифт для заголовка */
     font-size: 2.8rem; /* Размер */
-    font-weight: 700;
+    font-weight: 500;
     color: var(--white); /* Белый цвет для заголовка */
     margin-bottom: 20px;
-    text-shadow: 3px 3px 10px rgba(0,0,0,0.6); /* Более выраженная тень */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6); /* Более выраженная тень */
     line-height: 1.1;
     letter-spacing: 1px;
 
@@ -136,7 +136,7 @@ header nav a.active {
     background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
     padding: 15px 30px;
     border-radius: 10px;
-    border: 2px solid var(--accent-blue); /* Синяя рамка */
+    border: 3px solid var(--accent-blue); /* Синяя рамка */
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     display: inline-block; /* Облегает текст */
     max-width: 80%;
@@ -150,7 +150,7 @@ header nav a.active {
     margin-bottom: 40px;
     
     /* Белая рамка со скруглениями */
-    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+    background: rgba(224, 228, 234, 0.9); /* Полупрозрачный белый фон */
     padding: 15px 30px;
     border-radius: 10px;
     border: 2px solid var(--accent-blue); /* Синяя рамка */
@@ -158,7 +158,6 @@ header nav a.active {
     display: inline-block; /* Облегает текст */
     max-width: 80%;
 }
-
 .emblem-box {
     width: 200px;
     height: 200px;
