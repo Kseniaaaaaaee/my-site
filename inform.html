@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация для пассажиров | ИП Платоненко Г.А.</title>
+    
+    <style>
+        :root {
+            --primary-color: #172c41;
+            --accent-color: #1f618d;
+            --text-color: #333;
+            --white: rgba(255, 255, 255, 0.95); /* Немного прозрачности для карточек */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Настройка фонового изображения */
+        body::before {
+            content: "";
+            position: fixed; /* Фиксируем фон */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШУ КАРТИНКУ */
+            background-image: url('img/i\ \(1\).jfif'); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.7; /* Степень прозрачности фона (0.1 - почти прозрачный, 0.9 - плотный) */
+            z-index: -1; /* Отправляем на задний план */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            z-index: 1; /* Чтобы контент был выше фона */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px white; /* Чтобы текст на фоне не терялся */
+        }
+
+        h1 { color: var(--primary-color); font-size: 26px; margin-bottom: 5px; }
+        h2 { color: var(--primary-color); font-size: 18px; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; margin-top: 0; }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px); /* Эффект размытия под карточкой */
+        }
+
+        .insurance-info p { margin: 10px 0; font-size: 15px; }
+        .important { font-weight: bold; color: #d35400; }
+
+        .map-link {
+            display: inline-block;
+             background: var(--accent-color);
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .map-link:hover { background: #2980b9; }
+
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        input[type="text"], input[type="tel"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background: rgba(255,255,255,0.8);
+        }
+        textarea { height: 100px; }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .submit-btn:hover { background: #1a252f; transform: translateY(-2px); }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 14px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 10px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: bold;
+            border: 1px solid var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .back-home:hover { background: var(--accent-color); color: white; }
+
+        .phone-link { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Информация для пассажиров</h1>
+        <p>ИП Платоненко Г.А.</p>
+    </header>
+
+    <!-- 1. Страхование -->
+    <section class="card">
+        <h2>Страхование ответственности</h2>
+         <div class="insurance-info">
+            <p>Ваша поездка застрахована в соответствии с законом об обязательном страховании перевозчика.</p>
+            <p><strong>Номер договора:</strong><br><span class="important">IGSX22563197562000</span></p>
+            <p><strong>Срок действия:</strong><br>с 10.06.2025 по 09.06.2026</p>
+            <p><strong>Страховщик:</strong><br>Филиал СПАО «Ингосстрах» по НСО</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <p><strong>Контакт Ингосстрах (24/7):</strong><br>
+                <a href="tel:84959565555" class="phone-link">8 (495) 956 55 55</a><br>
+                <small>г. Москва, ул. Лесная, д. 41</small>
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. Онлайн карта -->
+    <section class="card">
+        <h2>Транспорт онлайн</h2>
+        <p>Узнайте, где сейчас находится ваш автобус:</p>
+        <a href="http://nskgortrans.ru" target="_blank" class="map-link">📍 Карта транспорта НСК</a>
+        
+        <p style="margin-top: 20px;"><strong>Работа транспорта (с 8:00 до 20:00):</strong><br>
+            <a href="tel:83832090660" class="phone-link">8 (383) 209-06-60</a>
+        </p>
+    </section>
+
+    <!-- 3. Обратная связь -->
+    <section class="card">
+        <h2>Претензии и предложения</h2>
+        <!-- Замените 'ВАШ_ID' на ID из Formspree -->
+        <form action="https://formspree.io/f/ВАШ_ID" method="POST">
+            <div class="form-group">
+                <label>Ваше ФИО</label>
+                <input type="text" name="fio" placeholder="Иванов Иван">
+            </div>
+            <div class="form-group">
+                <label>Телефон (для связи)</label>
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="form-group">
+                <label>Сообщение *</label>
+                <textarea name="message" required placeholder="Напишите нам..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Отправить</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><strong>ИП Платоненко Георгий Анатольевич</strong><br>
+        Безопасность и комфорт ваших поездок</p>
+        
+        <a href="index.html" class="back-home">Вернуться на главную</a>
+    </footer>
+</div>
+
+</body>
+</html>
