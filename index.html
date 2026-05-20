@@ -196,11 +196,16 @@
     <!-- НЕ ЗАБУДЬТЕ ЗАМЕНИТЬ "ВАШ_УНИКАЛЬНЫЙ_КОД" на ваш реальный ID из Formspree! -->
     <form action="https://formspree.io/f/mrejvalz" method="POST" class="application-form">
         
-        <!-- Добавлен атрибут name="full_name" -->
-        <input type="text" name="full_name" placeholder="Ваше ФИО" required>
+         <!-- Добавлен атрибут name="full_name" -->
+        <div class="form-group">
+                <label>Ваше ФИО</label>
+                <input type="text" name="fio" placeholder="Иванов Иван">
+            </div>
         
-        <!-- Добавлен атрибут name="phone" -->
-        <input type="tel" name="phone" placeholder="Ваш телефон" required>
+        <div class="form-group">
+                <label>Телефон</label>
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__">
+            </div>
         
         <!-- Добавлен атрибут name="vacancy" -->
         <select name="vacancy" required>
@@ -211,8 +216,10 @@
             <option value="Диспетчер">Диспетчер</option>
         </select>
         
-        <!-- Добавлен атрибут name="experience" -->
-        <textarea name="experience" placeholder="Опыт работы" rows="4"></textarea>
+        <div class="form-group">
+                <label>Опыт работы</label>
+                <textarea name="message" required placeholder="..."></textarea>
+            </div>
 
         <!-- Необязательное поле для защиты от спама (Formspree _gotcha) -->
         <input type="text" name="_gotcha" style="display:none">
