@@ -8,10 +8,11 @@ ss
     --white: #ffffff; /* Чистый белый */
     --border-gray: #6f80a7f7; /* Серовато-синий для границ */
     --footer-bg: #0d426a; /* Темный фон футера */
+    
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Fira Code', sans-serif;
     background-color: var(--bg-blue); /* Светло-голубой фон */
     color: var(--text-black); /* Черный основной текст */
     margin: 0;
@@ -67,13 +68,13 @@ header nav a {
     margin-left: 25px;
     font-family: 'Montserrat', sans-serif; /* Используем Montserrat для навигации */
     font-size: 1.1rem;
-    font-weight: 500; /* Средняя насыщенность */
+    font-weight: 700; /* Средняя насыщенность */
     transition: color 0.3s ease;
 }
 
 header nav a:hover,
 header nav a:focus {
-    color: var(--accent-blue); /* Цвет при наведении */
+    color: var(--text-black); /* Цвет при наведении */
     outline: none; /* Убираем стандартную обводку */
 }
 
@@ -158,6 +159,8 @@ header nav a.active {
     display: inline-block; /* Облегает текст */
     max-width: 80%;
 }
+
+
 .emblem-box {
     width: 200px;
     height: 200px;
@@ -186,22 +189,24 @@ header nav a.active {
 }
 
 .section-title {
-    font-family: 'Montserrat', sans-serif; /* Montserrat для заголовков */
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.8rem;
     font-weight: 700;
     color: var(--dark-blue);
-    text-align: center;
+    
+    /* Линия подчеркивания */
     border-bottom: 3px solid var(--accent-blue);
-    display: inline-block;
     padding-bottom: 10px;
+    
+    /* Центрирование */
+    display: inline-block; /* Позволяет ширине сжаться до размера текста */
     margin-bottom: 40px;
-    width: auto;
-    min-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block; /* Чтобы margin auto сработало */
     letter-spacing: 0.5px;
+    
+    /* Убираем лишние margin-left/right auto, так как они не работают с inline-block */
 }
+
+
 
 /* Карточки и сетки */
 .sector-card {
@@ -252,8 +257,8 @@ header nav a.active {
 
 .img-grid-2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr 1fr ;
+    gap: 10px;
 }
 
 .img-grid-4 {
@@ -354,7 +359,7 @@ header nav a.active {
 .application-form textarea {
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid var(--border-gray);
+    border: 1px solid var(--footer-bg);
     font-size: 1rem;
     width: 100%; /* Добавлено для адаптивности */
     box-sizing: border-box; /* Добавлено для адаптивности */
@@ -754,4 +759,31 @@ footer {
     }
 }
 
+
+/* Названия полей: жирные и над рамкой */
+label {
+    display: block !important;
+    font-weight: 700 !important; /* Жирный */
+    font-size: 15px !important;
+    color: #131d26 !important;
+    margin-bottom: 8px !important;
+    margin-top: 20px !important;
+    text-align: left !important;
+}
+
+/* Рамки ввода */
+input[type="text"], 
+input[type="tel"], 
+input[type="email"], 
+select, 
+textarea {
+    width: 100% !important;
+    padding: 14px 16px !important;
+    border: 1.5px solid #46526e !important; /* Светлая рамка как на фото */
+    border-radius: 10px !important; /* Скругление как на фото */
+    font-size: 16px !important;
+    background-color: #fafafa !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s !important;
+}
 
